@@ -1,13 +1,309 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    background: #ddd;
+    color: #222;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+}
+
+.wrapper {
+    width: 1280px;
+    margin: 50px auto;
+}
+
+header {
+    position: relative;
+    margin: 0 20px;
+}
+
+header .logo {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+header .nav {
+    float: right;
+    list-style: none;
+}
+
+header .nav li {
+    display: inline;
+    margin-left: 25px;
+    cursor: pointer;
+    transition: opacity 300ms ease;
+}
+
+header .nav li:hover {
+    opacity: 0.5;
+}
+
+header .cart-btn {
+    float: right;
+    cursor: pointer;
+    transform: scale(1.8);
+    transition: color, transform 300ms ease;
+}
+
+header .cart-btn:hover,
+header .cart-btn.active {
+    color: #dc3d3d;
+    transform: scale(2.2);
+}
+
+header .cart {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 450px;
+    background-color: #fff;
+    -webkit-box-shadow: 5px 5px 25px -10px rgba(34, 60, 80, 0.6);
+    -moz-box-shadow: 5px 5px 25px -10px rgba(34, 60, 80, 0.6);
+    box-shadow: 5px 5px 25px -10px rgba(34, 60, 80, 0.6);
+    z-index: 1000;
+    border-radius: 10px;
+    padding: 20px;
+    padding-bottom: 0;
+}
+
+header .cart .empty h3 {
+    font-size: 18px;
+    color: #797979;
+    margin-bottom: 20px;
+}
+
+header .cart .item {
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+}
+
+header .cart .item img {
+    width: 70px;
+    float: left;
+    margin-right: 20px;
+}
+
+header .cart .item h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+header .cart .item b {
+    color: #797979;
+}
+
+header .cart .item .delete-icon {
+    color: #333;
+    float: right;
+    margin-right: 30px;
+    position: relative;
+    top: -20px;
+    cursor: pointer;
+    transform: scale(1.7);
+    transition: color, transform 300ms ease;
+}
+
+header .cart .item .delete-icon:hover {
+    color: #dc3d3d;
+    transform: scale(2.0);
+}
+
+header .cart .summa {
+    float: left;
+    width: 100%;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+header .presentation {
+    margin: 50px 0;
+    background: url("img/p3.jpg") no-repeat center center; 
+    width: 100%;
+    height: 500px;
+    background-blend-mode: multiply;
+    background-color: #bcbcbc;
+    position: relative;
+    border-radius: 20px;
+}
+
+header .presentation::after{
+    content: "Лучшие товары для вашего дома";
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    width: 300px;
+    font-size: 40px;
+    font-weight: 600;
+    color: #fff;
+}
+
+header .presentation::before{
+    content: "По низким ценам";
+    position: absolute;
+    top: 250px;
+    left: 50px;
+    width: 300px;
+    font-size: 25px;
+    font-weight: 300;
+    color: #fff;
+}
+
+.categories {
+    margin: 0 20px;
+}
+
+.categories div {
+    display: inline-block;
+    background: #f2f2f2;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin-bottom: 25px;
+    margin-right: 15px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 300ms ease;
+}
+
+.categories div:hover,
+.categories .active {
+    border-color: silver;
+    transform: scale(1.1);
+}
+
+
+.full-item {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000000da;
+    z-index: 9999;
+    overflow: auto;
+}
+
+.full-item .close-btn {
+    cursor: pointer;
+    height: 100%;
+    margin: 0;
+    font-size: 30px;
+    color: #bcbcbc;
+}
+
+.full-item .close-btn:hover {
+    color: #222;
+}
+
+.full-item > div {
+    width: 900px;
+    position: relative;
+    margin: 10% auto;
+    padding: 40px 30px;
+    background: #fff;
+    border-radius: 10px;
+    display: flex;
+}
+
+.full-item > div > div {
+    width: 80%;
+    margin-left: 40px;
+    margin-top: 60px;
+    position: relative;
+}
+
+main {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+main .item {
+    width: 30%;
+    margin: 0 20px 50px 20px;
+    background: #f5f5f5;
+    border-radius: 25px 25px 5px 5px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 5/6;
+}
+
+main .item img {
+    width: 100%;
+    margin: 0 auto;
+    aspect-ratio: 4/3;
+    transition: transform 500ms ease;
+    cursor: pointer;
+}
+
+.full-item img {
+    max-width: 550px;
+    display: block;
+}
+
+main .item img:hover,
+.fullItem img:hover {
+    transform: scale(1.05);
+}
+
+main h2,
+.full-item h2 {
+    margin: 10px 20px;
+    color: #333;
+    display: inline-block;
+    cursor: pointer;
+}
+
+main p,
+.full-item p {
+    margin: 10px 20px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+main b,
+.full-item b {
+    color: #5fa36a;
+    font-size: 20px;
+    margin-left: 40px;
+}
+
+.full-item b {
+    position: absolute;
+    bottom: 25px;
+}
+
+main .add-to-cart,
+.full-item .add-to-cart{
+    position: absolute;
+    bottom: 0px;
+    right: 10%;
+    border: none;
+    border-radius: 15px;
+    background-color: #a8455e;
+    width: 60px;
+    height: 40px;
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 20px;
+    transition: transform 300ms ease;
+}
+
+main .add-to-cart:hover,
+.full-item .add-to-cart:hover {
+    transform: scale(1.1) translateY(-5px);
+}
+
+
+
+footer {
+    text-align: center;
+    margin-top: 100px;
 }
